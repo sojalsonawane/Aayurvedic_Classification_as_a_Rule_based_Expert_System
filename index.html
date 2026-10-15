@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ayurvedic Classification | Rule-Based Expert System</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS File -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <header class="navbar">
+
+        <a href="#home" class="logo">
+            <span class="logo-icon">✿</span>
+            <span>Ayur<span class="logo-highlight">Veda</span></span>
+        </a>
+
+        <nav class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#classifier">Classifier</a>
+            <a href="#rules">Rules</a>
+            <a href="#quiz">Quiz</a>
+        </nav>
+
+        <button id="mode" class="mode-button" type="button"
+            aria-label="Switch colour theme">
+            🌙
+        </button>
+
+    </header>
+
+
+    <!-- HOME SECTION -->
+    <main>
+
+        <section id="home" class="hero section">
+
+            <div class="hero-content reveal">
+
+                <span class="eyebrow">
+                    TRADITIONAL KNOWLEDGE MEETS TECHNOLOGY
+                </span>
+
+                <h1>
+                    Discover the Balance of
+                    <span>Tridosha</span>
+                </h1>
+
+                <p>
+                    Explore the traditional Ayurvedic concepts of Vata,
+                    Pitta, and Kapha through a simple rule-based expert
+                    system.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="#classifier" class="button primary-button">
+                        Start Classification →
+                    </a>
+
+                    <a href="#about" class="button secondary-button">
+                        Learn More
+                    </a>
+
+                </div>
+
+                <div class="hero-note">
+                    <span>✦</span>
+                    An educational project based on predefined rules
+                </div>
+
+            </div>
+
+
+            <div class="hero-visual reveal">
+
+                <div class="mandala">
+                    <div class="mandala-inner">
+                        <span class="mandala-flower">✿</span>
+                        <span class="mandala-text">TRIDOSHA</span>
+                    </div>
+                </div>
+
+                <div class="floating-card floating-vata">
+                    <span class="dosha-symbol">〰</span>
+                    <div>
+                        <strong>Vata</strong>
+                        <small>Air & Space</small>
+                    </div>
+                </div>
+
+                <div class="floating-card floating-pitta">
+                    <span class="dosha-symbol">☀</span>
+                    <div>
+                        <strong>Pitta</strong>
+                        <small>Fire & Water</small>
+                    </div>
+                </div>
+
+                <div class="floating-card floating-kapha">
+                    <span class="dosha-symbol">❋</span>
+                    <div>
+                        <strong>Kapha</strong>
+                        <small>Earth & Water</small>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ABOUT SECTION -->
+        <section id="about" class="section about-section">
+
+            <div class="section-heading reveal">
+
+                <span class="eyebrow">UNDERSTANDING AYURVEDA</span>
+
+                <h2>The Three Doshas</h2>
+
+                <p>
+                    In Ayurveda, Vata, Pitta, and Kapha are three important
+                    concepts used to describe different body and mind
+                    characteristics.
+                </p>
+
+            </div>
+
+
+            <div class="dosha-grid">
+
+                <article class="dosha-card vata-card reveal">
+
+                    <div class="dosha-icon">〰</div>
+
+                    <h3>Vata</h3>
+
+                    <span class="element-label">Air + Space</span>
+
+                    <p>
+                        Vata is traditionally associated with movement,
+                        activity, and communication.
+                    </p>
+
+                </article>
+
+
+                <article class="dosha-card pitta-card reveal">
+
+                    <div class="dosha-icon">☀</div>
+
+                    <h3>Pitta</h3>
+
+                    <span class="element-label">Fire + Water</span>
+
+                    <p>
+                        Pitta is traditionally associated with heat,
+                        transformation, and digestion.
+                    </p>
+
+                </article>
+
+
+                <article class="dosha-card kapha-card reveal">
+
+                    <div class="dosha-icon">❋</div>
+
+                    <h3>Kapha</h3>
+
+                    <span class="element-label">Earth + Water</span>
+
+                    <p>
+                        Kapha is traditionally associated with stability,
+                        structure, and support.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- CLASSIFIER SECTION -->
+        <section id="classifier" class="section classifier-section">
+
+            <div class="section-heading reveal">
+
+                <span class="eyebrow">RULE-BASED EXPERT SYSTEM</span>
+
+                <h2>Ayurvedic Classification</h2>
+
+                <p>
+                    Select the symptoms listed below to see how the
+                    predefined rules calculate the Dosha scores.
+                </p>
+
+            </div>
+
+
+            <div class="classifier-container reveal">
+
+                <div class="classifier-top">
+
+                    <div>
+                        <span class="step-label">STEP 01</span>
+                        <h3>Select Your Symptoms</h3>
+                    </div>
+
+                    <span id="selected-count" class="selected-count">
+                        0 selected
+                    </span>
+
+                </div>
+
+
+                <p class="helper-text">
+                    Select one or more symptoms that you want to evaluate.
+                </p>
+
+
+                <!-- VATA SYMPTOMS -->
+                <div class="symptom-group">
+
+                    <h4 class="group-title vata-text"></h4>
+
+                    <div class="symptom-list">
+
+                        <button type="button" class="symptom-button"
+                            data-symptom="Dry Skin">
+                            Dry Skin
+                        </button>
+
+                        <button type="button" class="symptom-button"
+                            data-symptom="Cold Hands/Feet">
+                            Cold Hands / Feet
+                        </button>
+
+                        <button type="button" class="symptom-button"
+                            data-symptom="Constipation">
+                            Constipation
+                        </button>
+
+                        <button type="button" class="symptom-button"
+                            data-symptom="Bloating">
+                            Bloating
+                        </button>
+
+                        <button type="button" class="symptom-button"
+                            data-symptom="Anxiety">
+                            Anxiety
+                        </button>
+
+                        <button type="button" class="symptom-button"
+                            data-symptom="Insomnia">
+                            Insomnia
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PITTA SYMPTOMS -->
+                <div class="symptom-group">
+
+                    <h4 class="group-title pitta-text"></h4>
+
+                    <div class="symptom-list">
+
+                        <button type="button" class="symptom-button"
+                            data-symptom="Acidity">
+                            Acidity
+                        </button>
+
+                        <button type="button" class="symptom-button"
+                            data-symptom="Irritability">
+                            Irritability
+                        </button>
+
+                        <button type="button" class="symptom-button"
+                            data-symptom="Inflammation">
+                            Inflammation
+                        </button>
+
+                        <button type="button" class="symptom-button"
+                            data-symptom="Sweating">
+                            Sweating
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- KAPHA SYMPTOMS -->
+                <div class="symptom-group">
+
+                    <h4 class="group-title kapha-text"></h4>
+
+                    <div class="symptom-list">
+
+                        <button type="button" class="symptom-button"
+                            data-symptom="Oily Skin">
+                            Oily Skin
+                        </button>
+
+                        <button type="button" class="symptom-button"
+                            data-symptom="Weight Gain">
+                            Weight Gain
+                        </button>
+
+                        <button type="button" class="symptom-button"
+                            data-symptom="Lethargy">
+                            Lethargy
+                        </button>
+
+                        <button type="button" class="symptom-button"
+                            data-symptom="Water Retention">
+                            Water Retention
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ACTION BUTTONS -->
+                <div class="classifier-actions">
+
+                    <button id="analyze-button"
+                        class="button primary-button"
+                        type="button">
+                        Analyze Symptoms →
+                    </button>
+
+                    <button id="clear-button"
+                        class="button clear-button"
+                        type="button">
+                        Clear Selection ↺
+                    </button>
+
+                </div>
+
+
+                <p id="selection-message"
+                    class="selection-message"
+                    role="status"
+                    aria-live="polite">
+                </p>
+
+
+                <!-- RESULTS -->
+                <div id="result-section"
+                    class="result-section"
+                    aria-live="polite"
+                    hidden>
+
+                    <div class="result-header">
+
+                        <span class="step-label">CLASSIFICATION RESULT</span>
+
+                        <h3 id="result-title">Your Result</h3>
+
+                        <p id="result-description"></p>
+
+                    </div>
+
+
+                    <!-- SCORE BARS -->
+                    <div class="score-card">
+
+                        <h4>Dosha Score Summary</h4>
+
+                        <p class="helper-text">
+                            Scores are calculated using the selected
+                            symptoms and their predefined weights.
+                        </p>
+
+
+                        <div class="score-row">
+
+                            <div class="score-label">
+                                <span>Vata</span>
+                                <strong id="vata-score">0 points</strong>
+                            </div>
+
+                            <div class="progress-track">
+                                <div id="vata-bar"
+                                    class="progress-bar vata-bar">
+                                </div>
+                            </div>
+
+                            <span id="vata-percent" class="percentage">
+                                0%
+                            </span>
+
+                        </div>
+
+
+                        <div class="score-row">
+
+                            <div class="score-label">
+                                <span>Pitta</span>
+                                <strong id="pitta-score">0 points</strong>
+                            </div>
+
+                            <div class="progress-track">
+                                <div id="pitta-bar"
+                                    class="progress-bar pitta-bar">
+                                </div>
+                            </div>
+
+                            <span id="pitta-percent" class="percentage">
+                                0%
+                            </span>
+
+                        </div>
+
+
+                        <div class="score-row">
+
+                            <div class="score-label">
+                                <span>Kapha</span>
+                                <strong id="kapha-score">0 points</strong>
+                            </div>
+
+                            <div class="progress-track">
+                                <div id="kapha-bar"
+                                    class="progress-bar kapha-bar">
+                                </div>
+                            </div>
+
+                            <span id="kapha-percent" class="percentage">
+                                0%
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- EXPLAINABLE RULES -->
+                    <div class="explanation-card">
+
+                        <span class="step-label">HOW WAS THIS RESULT CALCULATED?</span>
+
+                        <h4>Matched Rules</h4>
+
+                        <p class="helper-text">
+                            This section shows which selected symptoms
+                            matched the predefined rules and how many
+                            points each rule added.
+                        </p>
+
+                        <div id="rule-breakdown"></div>
+
+                    </div>
+
+
+                    <div class="educational-note">
+                        <strong>Important:</strong>
+                        This result is based only on the fixed rules
+                        defined in this academic project. It is for
+                        educational purposes and is not a medical
+                        diagnosis.
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- RULES SECTION -->
+        <section id="rules" class="section rules-section">
+
+            <div class="section-heading reveal">
+
+                <span class="eyebrow">KNOWLEDGE BASE</span>
+
+                <h2>Understanding the Rules</h2>
+
+                <p>
+                    The system uses predefined IF–THEN rules and weighted
+                    scores to calculate the classification result.
+                </p>
+
+            </div>
+
+
+            <div class="rules-grid">
+
+                <article class="rule-card reveal">
+
+                    <span class="rule-number">01</span>
+
+                    <h3>Vata Rules</h3>
+
+                    <p>Examples of rules used by the system:</p>
+
+                    <ul>
+                        <li>IF Dry Skin, THEN Vata +2</li>
+                        <li>IF Cold Hands/Feet, THEN Vata +2</li>
+                        <li>IF Constipation, THEN Vata +2</li>
+                        <li>IF Bloating, THEN Vata +1</li>
+                        <li>IF Anxiety, THEN Vata +1</li>
+                        <li>IF Insomnia, THEN Vata +1</li>
+                    </ul>
+
+                </article>
+
+
+                <article class="rule-card reveal">
+
+                    <span class="rule-number">02</span>
+
+                    <h3>Pitta Rules</h3>
+
+                    <p>Examples of rules used by the system:</p>
+
+                    <ul>
+                        <li>IF Acidity, THEN Pitta +2</li>
+                        <li>IF Irritability, THEN Pitta +2</li>
+                        <li>IF Inflammation, THEN Pitta +1</li>
+                        <li>IF Sweating, THEN Pitta +1</li>
+                    </ul>
+
+                </article>
+
+
+                <article class="rule-card reveal">
+
+                    <span class="rule-number">03</span>
+
+                    <h3>Kapha Rules</h3>
+
+                    <p>Examples of rules used by the system:</p>
+
+                    <ul>
+                        <li>IF Oily Skin, THEN Kapha +2</li>
+                        <li>IF Weight Gain, THEN Kapha +2</li>
+                        <li>IF Lethargy, THEN Kapha +1</li>
+                        <li>IF Water Retention, THEN Kapha +1</li>
+                    </ul>
+
+                </article>
+
+            </div>
+
+
+            <div class="logic-box reveal">
+
+                <h3>How the Expert System Works</h3>
+
+                <div class="logic-steps">
+
+                    <div class="logic-step">
+                        <span>1</span>
+                        <p>Select symptoms</p>
+                    </div>
+
+                    <div class="logic-arrow">→</div>
+
+                    <div class="logic-step">
+                        <span>2</span>
+                        <p>Match rules</p>
+                    </div>
+
+                    <div class="logic-arrow">→</div>
+
+                    <div class="logic-step">
+                        <span>3</span>
+                        <p>Calculate scores</p>
+                    </div>
+
+                    <div class="logic-arrow">→</div>
+
+                    <div class="logic-step">
+                        <span>4</span>
+                        <p>Display result</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- QUIZ SECTION -->
+        <section id="quiz" class="section quiz-section">
+
+            <div class="section-heading reveal">
+
+                <span class="eyebrow">TEST YOUR KNOWLEDGE</span>
+
+                <h2>Tridosha Knowledge Quiz</h2>
+
+                <p>
+                    Answer these questions to check your understanding
+                    of the three Doshas and the rule-based system.
+                </p>
+
+            </div>
+
+
+            <div class="quiz-container reveal">
+
+                <div class="quiz-top">
+
+                    <span id="quiz-progress">Question 1 of 5</span>
+
+                    <span id="quiz-score-label">Score: 0</span>
+
+                </div>
+
+
+                <div class="quiz-progress-track">
+                    <div id="quiz-progress-bar"></div>
+                </div>
+
+
+                <h3 id="quiz-question"></h3>
+
+
+                <div id="quiz-options" class="quiz-options"></div>
+
+
+                <p id="quiz-feedback"
+                    class="quiz-feedback"
+                    role="status"
+                    aria-live="polite">
+                </p>
+
+
+                <div class="quiz-actions">
+
+                    <button id="next-question"
+                        class="button primary-button"
+                        type="button"
+                        disabled>
+                        Next Question →
+                    </button>
+
+                    <button id="restart-quiz"
+                        class="button secondary-button"
+                        type="button"
+                        hidden>
+                        Restart Quiz ↺
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+
+        <a href="#home" class="logo footer-logo">
+            <span class="logo-icon">✿</span>
+            <span>Ayur<span class="logo-highlight">Veda</span></span>
+        </a>
+
+        <p>
+            Ayurvedic Classification as a Rule-Based Expert System
+        </p>
+
+        <p class="footer-note">
+            Academic project for educational purposes only.
+        </p>
+
+        <a href="#home" class="back-to-top">Back to Top ↑</a>
+
+    </footer>
+
+
+    <!-- JavaScript File -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>

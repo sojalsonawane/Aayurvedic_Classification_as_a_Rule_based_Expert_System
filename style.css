@@ -1,0 +1,1553 @@
+/* ========================================
+   1. ROOT VARIABLES
+======================================== */
+
+:root {
+    --green: #315c42;
+    --green-dark: #21432f;
+    --green-light: #e4efe5;
+
+    --cream: #faf8f0;
+    --white: #ffffff;
+
+    --mint: #eaf2e9;
+    --orange: #d58b4b;
+    --brown: #79583f;
+
+    --text: #29352c;
+    --muted: #727b71;
+
+    --border: #e4e8df;
+
+    --vata: #6b8eaa;
+    --pitta: #d58b4b;
+    --kapha: #66916e;
+
+    --shadow: 0 12px 35px rgba(36, 65, 44, 0.08);
+
+    --radius: 20px;
+
+    --heading-font: "Playfair Display", Georgia, serif;
+    --body-font: "DM Sans", Arial, sans-serif;
+}
+
+
+/* ========================================
+   2. BASIC RESET
+======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 95px;
+}
+
+body {
+    font-family: var(--body-font);
+    background: var(--cream);
+    color: var(--text);
+    line-height: 1.7;
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+button:focus-visible,
+a:focus-visible {
+    outline: 3px solid var(--orange);
+    outline-offset: 4px;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul {
+    list-style-position: inside;
+}
+
+section {
+    scroll-margin-top: 90px;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+
+/* ========================================
+   3. NAVIGATION
+======================================== */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    min-height: 76px;
+    padding: 15px 7%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+
+    background: rgba(250, 248, 240, 0.96);
+    border-bottom: 1px solid var(--border);
+
+    backdrop-filter: blur(12px);
+}
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+
+    font-family: var(--heading-font);
+    font-size: 1.55rem;
+    font-weight: 700;
+
+    color: var(--green);
+    white-space: nowrap;
+}
+
+.logo-icon {
+    font-size: 1.8rem;
+}
+
+.logo-highlight {
+    color: var(--orange);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: var(--muted);
+    font-size: 0.92rem;
+    font-weight: 600;
+
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+    color: var(--green);
+}
+
+.mode-button {
+    width: 42px;
+    height: 42px;
+
+    border: 1px solid var(--border);
+    border-radius: 50%;
+
+    background: var(--white);
+    color: var(--text);
+
+    font-size: 1.1rem;
+
+    transition: transform 0.2s ease;
+}
+
+.mode-button:hover {
+    transform: rotate(12deg);
+}
+
+
+/* ========================================
+   4. COMMON SECTION STYLES
+======================================== */
+
+.section {
+    padding: 90px 8%;
+}
+
+.section-heading {
+    max-width: 720px;
+    margin: 0 auto 45px;
+
+    text-align: center;
+}
+
+.eyebrow {
+    display: inline-block;
+
+    margin-bottom: 13px;
+
+    color: var(--green);
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.section-heading h2 {
+    margin-bottom: 17px;
+
+    font-family: var(--heading-font);
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.2;
+
+    color: var(--green-dark);
+}
+
+.section-heading p {
+    color: var(--muted);
+    font-size: 1rem;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    padding: 13px 22px;
+
+    border: 1px solid transparent;
+    border-radius: 10px;
+
+    font-weight: 700;
+    font-size: 0.92rem;
+
+    transition:
+        transform 0.2s ease,
+        background-color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.button:hover {
+    transform: translateY(-2px);
+}
+
+.primary-button {
+    background: var(--green);
+    color: white;
+}
+
+.primary-button:hover {
+    background: var(--green-dark);
+}
+
+.secondary-button {
+    background: transparent;
+    border-color: var(--border);
+    color: var(--green);
+}
+
+.secondary-button:hover {
+    background: var(--green-light);
+}
+
+.helper-text {
+    margin-top: 8px;
+
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.step-label {
+    display: inline-block;
+
+    color: var(--orange);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+
+/* ========================================
+   5. HERO SECTION
+======================================== */
+
+.hero {
+    min-height: 610px;
+
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+    gap: 45px;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 80% 40%,
+            #edf1df 0,
+            transparent 42%
+        ),
+        var(--cream);
+}
+
+.hero-content {
+    max-width: 650px;
+}
+
+.hero-content h1 {
+    margin: 12px 0 22px;
+
+    font-family: var(--heading-font);
+    font-size: clamp(2.7rem, 5vw, 4.6rem);
+    line-height: 1.12;
+
+    color: var(--green-dark);
+}
+
+.hero-content h1 span {
+    display: block;
+    color: var(--orange);
+}
+
+.hero-content > p {
+    max-width: 530px;
+    margin-bottom: 28px;
+
+    color: var(--muted);
+    font-size: 1.05rem;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 13px;
+}
+
+.hero-note {
+    margin-top: 28px;
+
+    color: var(--muted);
+    font-size: 0.85rem;
+}
+
+.hero-note span {
+    margin-right: 6px;
+    color: var(--orange);
+}
+
+
+/* Hero visual */
+
+.hero-visual {
+    position: relative;
+
+    min-height: 420px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mandala {
+    width: min(330px, 75vw);
+    aspect-ratio: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 2px solid rgba(49, 92, 66, 0.25);
+    border-radius: 50%;
+
+    background:
+        repeating-conic-gradient(
+            from 0deg,
+            rgba(49, 92, 66, 0.05) 0deg 10deg,
+            transparent 10deg 20deg
+        );
+
+    box-shadow:
+        0 0 0 18px rgba(49, 92, 66, 0.04),
+        0 0 0 38px rgba(49, 92, 66, 0.025);
+}
+
+.mandala-inner {
+    width: 72%;
+    height: 72%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    border: 1px solid rgba(49, 92, 66, 0.25);
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.75);
+}
+
+.mandala-flower {
+    color: var(--green);
+    font-size: 5.5rem;
+    line-height: 1;
+}
+
+.mandala-text {
+    color: var(--green);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+}
+
+.floating-card {
+    position: absolute;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 12px 16px;
+
+    border: 1px solid var(--border);
+    border-radius: 13px;
+
+    background: var(--white);
+    box-shadow: var(--shadow);
+}
+
+.floating-card strong {
+    display: block;
+    color: var(--text);
+}
+
+.floating-card small {
+    display: block;
+    color: var(--muted);
+    font-size: 0.76rem;
+}
+
+.dosha-symbol {
+    font-size: 1.7rem;
+}
+
+.floating-vata {
+    top: 35px;
+    left: 0;
+}
+
+.floating-pitta {
+    top: 45%;
+    right: -5px;
+}
+
+.floating-kapha {
+    bottom: 25px;
+    left: 5%;
+}
+
+
+/* ========================================
+   6. ABOUT / DOSHA CARDS
+======================================== */
+
+.about-section {
+    background: var(--white);
+}
+
+.dosha-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+
+    max-width: 1150px;
+    margin: 0 auto;
+}
+
+.dosha-card {
+    padding: 32px 28px;
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+
+    background: var(--cream);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.dosha-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow);
+}
+
+.dosha-icon {
+    width: 60px;
+    height: 60px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 20px;
+
+    border-radius: 17px;
+    background: var(--green-light);
+
+    color: var(--green);
+    font-size: 2rem;
+}
+
+.pitta-card .dosha-icon {
+    background: #f8e9d9;
+    color: var(--pitta);
+}
+
+.kapha-card .dosha-icon {
+    background: #e4eee2;
+    color: var(--kapha);
+}
+
+.dosha-card h3 {
+    margin-bottom: 7px;
+
+    font-family: var(--heading-font);
+    font-size: 1.7rem;
+}
+
+.element-label {
+    display: inline-block;
+
+    margin-bottom: 15px;
+
+    color: var(--orange);
+    font-size: 0.83rem;
+    font-weight: 700;
+}
+
+.dosha-card p {
+    color: var(--muted);
+    font-size: 0.93rem;
+}
+
+
+/* ========================================
+   7. CLASSIFIER SECTION
+======================================== */
+
+.classifier-section {
+    background: var(--mint);
+}
+
+.classifier-container {
+    max-width: 920px;
+    margin: 0 auto;
+
+    padding: 35px;
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+
+    background: var(--white);
+    box-shadow: var(--shadow);
+}
+
+.classifier-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.classifier-top h3 {
+    margin-top: 5px;
+
+    font-family: var(--heading-font);
+    font-size: 1.7rem;
+}
+
+.selected-count {
+    padding: 7px 13px;
+
+    border-radius: 30px;
+
+    background: var(--green-light);
+    color: var(--green);
+
+    font-size: 0.8rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.symptom-group {
+    margin-top: 30px;
+}
+
+.group-title {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    margin-bottom: 13px;
+
+    font-size: 1rem;
+}
+
+.group-title span {
+    font-size: 1.3rem;
+}
+
+.vata-text {
+    color: var(--vata);
+}
+
+.pitta-text {
+    color: var(--pitta);
+}
+
+.kapha-text {
+    color: var(--kapha);
+}
+
+.symptom-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.symptom-button {
+    padding: 10px 16px;
+
+    border: 1px solid var(--border);
+    border-radius: 30px;
+
+    background: var(--cream);
+    color: var(--text);
+
+    font-size: 0.87rem;
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.symptom-button:hover {
+    border-color: var(--green);
+    transform: translateY(-1px);
+}
+
+.symptom-button.active {
+    border-color: var(--green);
+    background: var(--green);
+    color: white;
+}
+
+.classifier-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    margin-top: 35px;
+}
+
+.clear-button {
+    border-color: var(--border);
+    background: var(--white);
+    color: var(--text);
+}
+
+.clear-button:hover {
+    border-color: var(--orange);
+    background: #fff7ee;
+}
+
+.selection-message {
+    min-height: 25px;
+    margin-top: 12px;
+
+    color: var(--muted);
+    font-size: 0.88rem;
+}
+
+
+/* ========================================
+   8. CLASSIFICATION RESULTS
+======================================== */
+
+.result-section {
+    margin-top: 35px;
+    padding-top: 30px;
+
+    border-top: 1px solid var(--border);
+}
+
+.result-header {
+    margin-bottom: 25px;
+}
+
+.result-header h3 {
+    margin: 8px 0;
+
+    font-family: var(--heading-font);
+    font-size: 1.8rem;
+
+    color: var(--green);
+}
+
+.result-header p {
+    color: var(--muted);
+}
+
+.score-card,
+.explanation-card {
+    margin-top: 22px;
+    padding: 25px;
+
+    border: 1px solid var(--border);
+    border-radius: 15px;
+
+    background: var(--cream);
+}
+
+.score-card h4,
+.explanation-card h4 {
+    font-size: 1.1rem;
+}
+
+.score-row {
+    display: grid;
+    grid-template-columns: 1fr 2fr 48px;
+    align-items: center;
+    gap: 14px;
+
+    margin-top: 23px;
+}
+
+.score-label {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.score-label span {
+    font-weight: 700;
+}
+
+.score-label strong {
+    color: var(--muted);
+    font-size: 0.8rem;
+}
+
+.progress-track {
+    height: 11px;
+    overflow: hidden;
+
+    border-radius: 20px;
+    background: #e5e8e0;
+}
+
+.progress-bar {
+    width: 0;
+    height: 100%;
+
+    border-radius: 20px;
+
+    transition: width 0.5s ease;
+}
+
+.vata-bar {
+    background: var(--vata);
+}
+
+.pitta-bar {
+    background: var(--pitta);
+}
+
+.kapha-bar {
+    background: var(--kapha);
+}
+
+.percentage {
+    text-align: right;
+
+    color: var(--muted);
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+
+/* ========================================
+   9. EXPLAINABLE RULE BREAKDOWN
+======================================== */
+
+.explanation-card > .helper-text {
+    margin-bottom: 20px;
+}
+
+.rule-result {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 15px;
+
+    margin-top: 12px;
+    padding: 15px;
+
+    border: 1px solid var(--border);
+    border-radius: 11px;
+
+    background: var(--white);
+}
+
+.rule-result strong {
+    display: block;
+    margin-bottom: 4px;
+}
+
+.rule-result p {
+    color: var(--muted);
+    font-size: 0.85rem;
+}
+
+.rule-points {
+    flex-shrink: 0;
+
+    padding: 5px 10px;
+
+    border-radius: 20px;
+
+    background: var(--green-light);
+    color: var(--green);
+
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.rule-summary {
+    margin-top: 20px;
+    padding-top: 16px;
+
+    border-top: 1px solid var(--border);
+
+    font-weight: 700;
+}
+
+.educational-note {
+    margin-top: 22px;
+    padding: 17px;
+
+    border-left: 4px solid var(--orange);
+    border-radius: 5px;
+
+    background: #fff7ed;
+    color: #654a32;
+
+    font-size: 0.88rem;
+}
+
+
+/* ========================================
+   10. RULES SECTION
+======================================== */
+
+.rules-section {
+    background: var(--white);
+}
+
+.rules-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.rule-card {
+    padding: 28px;
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+
+    background: var(--cream);
+}
+
+.rule-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 42px;
+    height: 42px;
+
+    margin-bottom: 18px;
+
+    border-radius: 12px;
+
+    background: var(--green-light);
+    color: var(--green);
+
+    font-weight: 700;
+}
+
+.rule-card h3 {
+    margin-bottom: 10px;
+
+    font-family: var(--heading-font);
+    font-size: 1.5rem;
+}
+
+.rule-card p {
+    margin-bottom: 15px;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.rule-card ul {
+    color: var(--text);
+    font-size: 0.88rem;
+}
+
+.rule-card li {
+    margin-bottom: 9px;
+}
+
+.logic-box {
+    max-width: 1000px;
+    margin: 45px auto 0;
+
+    padding: 30px;
+
+    border-radius: var(--radius);
+
+    background: var(--green);
+    color: white;
+}
+
+.logic-box h3 {
+    margin-bottom: 25px;
+
+    font-family: var(--heading-font);
+    font-size: 1.6rem;
+
+    text-align: center;
+}
+
+.logic-steps {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.logic-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+
+    text-align: center;
+}
+
+.logic-step span {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: white;
+    color: var(--green);
+
+    font-weight: 700;
+}
+
+.logic-step p {
+    font-size: 0.84rem;
+}
+
+.logic-arrow {
+    color: #eac18e;
+    font-size: 1.4rem;
+}
+
+
+/* ========================================
+   11. QUIZ SECTION
+======================================== */
+
+.quiz-section {
+    background: var(--mint);
+}
+
+.quiz-container {
+    max-width: 750px;
+    margin: 0 auto;
+
+    padding: 32px;
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+
+    background: var(--white);
+    box-shadow: var(--shadow);
+}
+
+.quiz-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+
+    color: var(--muted);
+    font-size: 0.86rem;
+    font-weight: 700;
+}
+
+.quiz-progress-track {
+    height: 7px;
+    margin: 15px 0 28px;
+
+    overflow: hidden;
+    border-radius: 20px;
+
+    background: var(--border);
+}
+
+#quiz-progress-bar {
+    width: 0;
+    height: 100%;
+
+    border-radius: 20px;
+    background: var(--green);
+
+    transition: width 0.3s ease;
+}
+
+#quiz-question {
+    margin-bottom: 22px;
+
+    font-family: var(--heading-font);
+    font-size: 1.45rem;
+    line-height: 1.4;
+}
+
+.quiz-options {
+    display: grid;
+    gap: 12px;
+}
+
+.quiz-option {
+    width: 100%;
+    padding: 14px 16px;
+
+    border: 1px solid var(--border);
+    border-radius: 10px;
+
+    background: var(--cream);
+    color: var(--text);
+
+    text-align: left;
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.quiz-option:hover:not(:disabled) {
+    border-color: var(--green);
+}
+
+.quiz-option.correct {
+    border-color: #4b9560;
+    background: #e6f4e8;
+    color: #245c35;
+}
+
+.quiz-option.incorrect {
+    border-color: #d77969;
+    background: #fff0ed;
+    color: #8d3427;
+}
+
+.quiz-option:disabled {
+    cursor: default;
+    opacity: 1;
+}
+
+.quiz-feedback {
+    min-height: 27px;
+    margin-top: 18px;
+
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.quiz-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    margin-top: 18px;
+}
+
+
+/* ========================================
+   12. FOOTER
+======================================== */
+
+.footer {
+    padding: 45px 8%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+    background: var(--green-dark);
+    color: white;
+
+    text-align: center;
+}
+
+.footer-logo {
+    color: white;
+}
+
+.footer-logo .logo-highlight {
+    color: #e9b47e;
+}
+
+.footer > p {
+    font-size: 0.9rem;
+}
+
+.footer-note {
+    color: #d3dfd4;
+    font-size: 0.82rem !important;
+}
+
+.back-to-top {
+    margin-top: 12px;
+
+    color: #f1c18e;
+    font-size: 0.88rem;
+    font-weight: 700;
+}
+
+
+/* ========================================
+   13. REVEAL ANIMATION
+======================================== */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(18px);
+
+    transition:
+        opacity 0.6s ease,
+        transform 0.6s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* ========================================
+   14. DARK MODE
+======================================== */
+
+body.night {
+    --green: #9dc6a6;
+    --green-dark: #d0e4d2;
+    --green-light: #2b4433;
+
+    --cream: #17211b;
+    --white: #202c24;
+
+    --mint: #1a2920;
+    --orange: #e7ad72;
+    --brown: #d5b59a;
+
+    --text: #e7eee7;
+    --muted: #b0beb2;
+
+    --border: #35453a;
+
+    --vata: #8eb7d7;
+    --pitta: #e7ad72;
+    --kapha: #8fbd94;
+
+    --shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
+}
+
+body.night .navbar {
+    background: rgba(23, 33, 27, 0.96);
+}
+
+body.night .hero {
+    background:
+        radial-gradient(
+            circle at 80% 40%,
+            #26382a 0,
+            transparent 42%
+        ),
+        var(--cream);
+}
+
+body.night .mandala-inner {
+    background: rgba(32, 44, 36, 0.88);
+}
+
+body.night .mode-button {
+    background: var(--white);
+    border-color: var(--border);
+}
+
+body.night .clear-button {
+    background: var(--white);
+    color: var(--text);
+}
+
+body.night .clear-button:hover {
+    background: #3a2c21;
+}
+
+body.night .progress-track {
+    background: #35443a;
+}
+
+body.night .rule-result {
+    background: #26352b;
+}
+
+body.night .educational-note {
+    background: #3a3024;
+    border-left-color: var(--orange);
+    color: #f0d9bd;
+}
+
+body.night .quiz-option.correct {
+    background: #25442d;
+    color: #c8f0ce;
+}
+
+body.night .quiz-option.incorrect {
+    background: #492d29;
+    color: #ffd1c9;
+}
+
+body.night .floating-card {
+    background: var(--white);
+}
+
+
+/* ========================================
+   15. TABLET RESPONSIVE DESIGN
+======================================== */
+
+@media (max-width: 1000px) {
+
+    .navbar {
+        padding-left: 4%;
+        padding-right: 4%;
+    }
+
+    .nav-links {
+        gap: 15px;
+    }
+
+    .section {
+        padding: 75px 5%;
+    }
+
+    .hero {
+        gap: 25px;
+    }
+
+    .dosha-grid,
+    .rules-grid {
+        gap: 15px;
+    }
+
+    .dosha-card,
+    .rule-card {
+        padding: 23px;
+    }
+
+}
+
+
+/* ========================================
+   16. MOBILE RESPONSIVE DESIGN
+======================================== */
+
+@media (max-width: 760px) {
+
+    .navbar {
+        min-height: auto;
+
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        padding: 12px 5%;
+        gap: 12px;
+    }
+
+    .logo {
+        font-size: 1.35rem;
+    }
+
+    .nav-links {
+        order: 3;
+        width: 100%;
+
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+
+        gap: 12px 18px;
+    }
+
+    .nav-links a {
+        font-size: 0.82rem;
+    }
+
+    .section {
+        padding: 65px 5%;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .hero-content {
+        margin: 0 auto;
+    }
+
+    .hero-content > p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-note {
+        margin-top: 20px;
+    }
+
+    .hero-visual {
+        min-height: 370px;
+        margin-top: 10px;
+    }
+
+    .mandala {
+        width: min(280px, 68vw);
+    }
+
+    .mandala-flower {
+        font-size: 4.5rem;
+    }
+
+    .floating-card {
+        padding: 9px 12px;
+    }
+
+    .floating-vata {
+        left: 0;
+        top: 15px;
+    }
+
+    .floating-pitta {
+        right: 0;
+    }
+
+    .floating-kapha {
+        left: 0;
+        bottom: 10px;
+    }
+
+    .dosha-grid,
+    .rules-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dosha-card,
+    .rule-card {
+        padding: 25px;
+    }
+
+    .classifier-container {
+        padding: 22px;
+    }
+
+    .classifier-top {
+        align-items: flex-start;
+    }
+
+    .classifier-top h3 {
+        font-size: 1.4rem;
+    }
+
+    .symptom-list {
+        gap: 8px;
+    }
+
+    .symptom-button {
+        padding: 9px 12px;
+        font-size: 0.82rem;
+    }
+
+    .classifier-actions {
+        flex-direction: column;
+    }
+
+    .classifier-actions .button {
+        width: 100%;
+    }
+
+    .score-card,
+    .explanation-card {
+        padding: 18px;
+    }
+
+    .score-row {
+        grid-template-columns: 1fr 55px;
+        gap: 8px 12px;
+    }
+
+    .score-label {
+        grid-column: 1 / -1;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .progress-track {
+        grid-column: 1;
+    }
+
+    .percentage {
+        grid-column: 2;
+    }
+
+    .rule-result {
+        padding: 12px;
+    }
+
+    .logic-box {
+        padding: 24px 15px;
+    }
+
+    .logic-steps {
+        flex-direction: column;
+    }
+
+    .logic-arrow {
+        transform: rotate(90deg);
+    }
+
+    .quiz-container {
+        padding: 22px;
+    }
+
+    #quiz-question {
+        font-size: 1.25rem;
+    }
+
+}
+
+
+/* ========================================
+   17. SMALL MOBILE SCREENS
+======================================== */
+
+@media (max-width: 420px) {
+
+    .section-heading h2 {
+        font-size: 2rem;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .hero-buttons .button {
+        width: 100%;
+    }
+
+    .floating-card {
+        gap: 6px;
+        padding: 8px;
+    }
+
+    .floating-card strong {
+        font-size: 0.85rem;
+    }
+
+    .floating-card small {
+        font-size: 0.68rem;
+    }
+
+    .dosha-symbol {
+        font-size: 1.3rem;
+    }
+
+    .classifier-container {
+        padding: 17px;
+    }
+
+    .selected-count {
+        font-size: 0.72rem;
+        padding: 6px 9px;
+    }
+
+    .quiz-top {
+        font-size: 0.77rem;
+    }
+
+}
+
+
+/* ========================================
+   18. REDUCED MOTION ACCESSIBILITY
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+    }
+
+}
